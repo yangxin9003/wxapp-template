@@ -1,0 +1,12 @@
+// index.wxml
+view.container
+  view.userinfo
+    button(wx:if!="{{!hasUserInfo && canIUse}}", open-type='getUserInfo', bindgetuserinfo='getUserInfo')  获取头像昵称
+    block(wx:else='')
+      img.userinfo-avatar(bindtap='bindViewTap', src='{{userInfo.avatarUrl}}', mode='cover')
+      text.userinfo-nickname {{userInfo.nickName}}
+  view.usermotto
+    text.user-motto {{motto}}
+
+  mp-dialog(title='test', show='{{true}}', bindbuttontap='tapDialogButton', buttons!="{{[{text: '取消'}, {text: '确认'}]}}")
+    view test content
